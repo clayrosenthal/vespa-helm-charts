@@ -60,8 +60,5 @@ spec:
   - metadata:
       name: {{ .metadata.name }}
     spec:
-      accessModes: {{ .spec.accessModes }}
-      resources:
-        requests:
-          storage: {{ .spec.resources.requests.storage }}
+      {{- toYaml .spec | nindent 6 }}
   {{- end }}
